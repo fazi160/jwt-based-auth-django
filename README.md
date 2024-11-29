@@ -19,7 +19,6 @@ A Django-based project that implements JWT authentication and role-based access 
 - Python 3.8+
 - Django 4.x
 - Django REST Framework
-- PostgreSQL or any preferred database
 - `djangorestframework-simplejwt` for JWT implementation
 
 ## Installation
