@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
     def validate(self, data):
         # Validate if 'author' or 'admin' requires 'is_permitted' to be False
         user_type = data.get('user_type', 'user')
-        is_permitted = data.get('is_permitted', True)  # Default is True
+        is_permitted = data.get('is_permitted', False)  # Default is True
         if user_type in ['author', 'admin'] and is_permitted:
             raise serializers.ValidationError(
                 f"Users with type '{user_type}' cannot have 'is_permitted' set to True."

@@ -6,8 +6,10 @@ class BlogSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Blog
-        fields = '__all__'  # Include all fields from the Blog model
-        fields += ('like_count',)  # Add like_count to the serialized output
+        fields = [  # Explicitly list all fields to avoid string-tuple concatenation issues
+            *[f.name for f in Blog._meta.fields],  # All model fields
+            'like_count'  # Add the custom field
+        ]
 
     def get_like_count(self, obj):
         # Count the number of likes for the given blog

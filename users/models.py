@@ -7,7 +7,7 @@ class User(AbstractUser):
     USER_TYPE_CHOICES = [
         ('user', 'User'),
         ('author', 'author'),
-        ('admin', 'Admin'),
+        ('admin', 'admin'),
     ]
 
     user_type = models.CharField(
@@ -16,4 +16,5 @@ class User(AbstractUser):
         default='user',
     )
     is_permitted = models.BooleanField(default=False)
+    
 
